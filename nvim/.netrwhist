@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/Carlos/Stash_CM/rundeck_jobs/cdrn'
-let g:netrw_dirhist_2='/Users/Carlos/.tmux'
-let g:netrw_dirhist_3='/Users/Carlos/.oh-my-zsh'
-let g:netrw_dirhist_4='/Users/Carlos/.oh-my-zsh/themes'
