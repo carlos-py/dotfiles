@@ -26,6 +26,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'edkolev/tmuxline.vim'
 Plug 'scrooloose/syntastic'
 Plug 'dougireton/vim-chef'
+Plug 'benmills/vimux'
+Plug 'jistr/vim-nerdtree-tabs'
 call plug#end()
 
 " Auto start NERDTree if vim is called with no arguments
@@ -40,7 +42,17 @@ autocmd VimEnter * call StartUp()
 " Close NERDTree if it's the only and last buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+" Open NERDTree files in tabs
+"let NERDTreeMapOpenInTab='\r'
+"let NERDTreeMapOpenInTab='<ENTER>'
+let g:nerdtree_tabs_open_on_console_startup=1
 " #### Basics #####
+let mapleader=","
+map <Leader>c :call VimuxRunCommand("clear; kitchen converge")<CR>
+map <Leader>C :call VimuxPromptCommand("clear; kitchen converge ")<CR>
+map <Leader>kl :call VimuxRunCommand("clear; kitchen list")<CR>
+map <Leader>x :VimuxRunLastCommand<CR>
+map <Leader>vq :VimuxCloseRunner<CR>
 
 " Switch TABS to SPACES
 set tabstop=2
@@ -85,3 +97,6 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 let g:syntastic_ruby_exec = 'foodcritic'
+
+let g:VimuxUseNearestPane = 1
+
